@@ -39,11 +39,17 @@ main() {
 
 	log_info "Merging ${#dicts[@]} dictionaries into $final"
 	if (( ${#dicts[@]} > 0 )); then
-		if ! ./merge.sh "${dicts[@]}" > "$final"; then
-			log_error "Could not merge $final"
+		local final_data
+
+		if ! final_data=$(./merge.sh "${dicts[@]}"); then
+			log_error "Could not merge combined dictionary"
 			err=1
 		fi
 
+		if ! printf 'all_questions = %s;\n' "$final_data" > "$final"; then
+			log_error "Could not write to $final"
+			err=1
+		fi
 	fi
 
 	return "$err"
