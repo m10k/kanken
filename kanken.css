@@ -1,0 +1,33 @@
+div#content {
+    width: 512px;
+    margin: 2em auto;
+    text-align: center;
+}
+
+p#question {
+    font-size: 32;
+    font-family: Sans;
+}
+
+p#comment {
+    font-size: 28px;
+    font-family: Sans;
+    padding: 8px;
+}
+
+.correct {
+    border: 1px solid #2c7e25;
+    background: #83bf7e;
+    border-radius: 3px;
+}
+
+.incorrect {
+    border: 1px solid #b30b0b;
+    background: #eb6969;
+    border-radius: 3px;
+}
+
+input#answer {
+    font-size: 28px;
+    font-family: Sans;
+}
